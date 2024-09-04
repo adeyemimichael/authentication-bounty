@@ -43,7 +43,8 @@ const delete_user_by_username = async (req, res) => {
         return res.status(500).json({ message: "Server Error", ok: false });
     }
 };
- ### In authHandling.js
+
+ ## In authHandling.js
 router.post(
     "/delete/user",
     authentication,
@@ -51,7 +52,7 @@ router.post(
     (req, res) => authController.delete_user_by_username(req, res)
 );
 
-### Frontend Implementation
+## Frontend Implementation
 document.getElementById("delete-user-form").addEventListener("submit", async (event) => {
     event.preventDefault();
     const username = document.getElementById("other-username").value;
@@ -64,20 +65,20 @@ document.getElementById("delete-user-form").addEventListener("submit", async (ev
     });
 });
 ```
-``` bash
-Authentication vs Authorization
-Authentication
+
+## Authentication vs Authorization
+## Authentication
 Authentication is the process of verifying the identity of a user. It ensures that the user is who they claim to be by checking credentials like username and password.
 
-Authorization
+## Authorization
 Authorization, on the other hand, determines what an authenticated user is allowed to do. It controls access to resources and actions based on the user's permissions or roles.
 
-Explanation
+## Explanation
 Is deleting a user after authentication a good idea?
 
 While allowing any authenticated user to delete another user might be feasible in certain scenarios (like testing or educational purposes), it’s generally a bad idea for a production environment. Such functionality should be restricted to authorized roles, typically admins, to prevent misuse and unauthorized deletions.
 
-Key Differences:
+## Key Differences:
 
 Authentication confirms the user's identity.
 Authorization controls the actions a user can perform based on their role or permissions.
